@@ -1,0 +1,9 @@
+ol ul li{
+    list-style-type: none;
+    margin-bottom: 4px;
+    transition: transform 0.2s;
+}
+
+ol ul li:hover {
+    transform: scale(1.01);
+}
