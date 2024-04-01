@@ -6,13 +6,15 @@ import SideMenu from './SideMenu';
 function App() {
   return (
     <div className="row">
-      <SideMenu/>      
+      <div id='sidebar'><SideMenu/></div>    
 
-      <input className='output-box' readOnly placeholder='Recipe suggestions appear here'></input>
+      <div id='content'>
+        <input className='output-box' readOnly placeholder='Recipe suggestions appear here'></input>
 
-      <form className="respond-box">
-        <input placeholder='Ask about recipes here'></input>
-      </form>
+        <form className="respond-box">
+          <input placeholder='Ask about recipes here'></input>
+        </form>
+      </div>
     </div>
   );
 }

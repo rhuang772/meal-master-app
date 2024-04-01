@@ -55,7 +55,8 @@
 
 .output-box {
   padding: all;
-  height: 85vh;
+  height: 90vh;
+  width: 100%;
 }
 
 .row {
@@ -64,3 +65,26 @@
   flex-direction: column;
 }
 
+#sidebar, #content {
+  height: 100%;
+  overflow:auto;
+  float:left;
+  transition: width .35s;
+}
+
+#sidebar {
+  width: 30%;
+  box-shadow: 2px 0 4px rgba(0,0,0,0.5);
+}
+
+#sidebar.collapsed {
+  width: 0;
+}
+
+#sidebar.collapsed + #content {
+  width: 100%;
+}
+
+#content {
+  width: 70%;
+}
