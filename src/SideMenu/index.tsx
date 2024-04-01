@@ -92,7 +92,7 @@ function SideMenu() {
                                 <textarea cols={44} rows={2}></textarea>
                             </form><br/>
                         </ol>
-                        <button style={{marginLeft: "135px"}}className="btn btn-primary" type="button">Submit</button>
+                        <button style={{marginLeft: "135px"}}className="btn btn-primary" onClick={toggleMenu} type="button">Submit</button>
                     </div>
                 </div>
             ) : (

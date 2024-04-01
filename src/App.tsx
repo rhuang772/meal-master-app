@@ -7,6 +7,8 @@ function App() {
   return (
     <div className="row">
       <SideMenu/>
+      <input className='output-box' readOnly placeholder='Recipe suggestions appear here'></input>
+      <input className="respond-box" placeholder='Ask about recipes here'></input>
     </div>
   );
 }
