@@ -38,11 +38,29 @@
 }
 
 .respond-box {
+  bottom: 0;
+  left: 0;
+  background-color: #dcdcdc;
+  padding: 20px;
   display: flex;
-  width: fit-content;
-  position: static;
+}
+
+.respond-box input {
+  padding: 10px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  flex-grow: 1;
+  border-radius: 5px;
 }
 
 .output-box {
   padding: all;
+  height: 85vh;
 }
+
+.row {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
