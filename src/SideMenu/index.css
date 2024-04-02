@@ -1,7 +1,15 @@
+div h1 {
+    color: coral;
+}
 ol ul li{
     list-style-type: none;
     margin-bottom: 4px;
     transition: transform 0.2s;
+    color: white;
+}
+
+ol li {
+    color: white;
 }
 
 ol ul li:hover {

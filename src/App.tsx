@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SideMenu from './SideMenu';
 
@@ -13,10 +11,11 @@ function App() {
 
         <form className="respond-box">
           <input placeholder='Ask about recipes here'></input>
-        </form>
+        </form><br/>
       </div>
     </div>
   );
 }
 
 export default App;
+
