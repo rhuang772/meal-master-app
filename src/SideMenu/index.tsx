@@ -1,33 +1,14 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import {AI} from '../AIComponent';
 
-function SideMenu() {
+function SideMenu(AI: AI) {
     const [cookingScale, setCookingScale] = useState("");
     const [timesPerWeek, setTimesPerWeek] = useState("");
     const [dietaryRestrictions, setDietaryRestrictions] = useState("");
     const [dietType, setDietType] = useState("");
     const [goals, setGoals] = useState("");
-
-    const genAI = new GoogleGenerativeAI('AIzaSyDPCMGRnDcsGi1HzjuMRsro5uo52QGJ_G8')
-
-    async function run() {
-        // For text-only input, use the gemini-pro model
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-        const prompt = "Generate some detailed recipes from the following information: The user rates their cooking a " + cookingScale + " on a scale from 1 to 5, 1 - instant ramen, 2 - can use a stove, 3 - comfortable with cooking, 4 - daily compliments on your cooking, and 5 being an expert. " +
-        "The user cooks " + timesPerWeek + " times per week. " + 
-        "The user has the following dietary restrictions/allergies: " + dietaryRestrictions + 
-        " The user adheres to the following diet: " + dietType + 
-        " The user has the following goals when making a meal: " + goals;
-
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        const text = response.text().replace(/\*/g, "");
-        console.log(text); // test output in console for now
-    }
-
 
     return (
         <div style={{ backgroundColor: "gray" }} className="container-fluid">
@@ -107,7 +88,7 @@ function SideMenu() {
                         <textarea className="form-control" onChange={(e) => setGoals(e.target.value)}></textarea>
                     </form><br />
                 </ol>
-                <button style={{ marginLeft: "190px" }} className="btn btn-success" onClick={run} type="button">Submit</button>
+                <button style={{ marginLeft: "190px" }} className="btn btn-success" type="button" onClick={AI.setParams(cookingScale, timesPerWeek, dietaryRestrictions, dietType, goals)}>Submit</button>
             </div>
             <br />
         </div>
