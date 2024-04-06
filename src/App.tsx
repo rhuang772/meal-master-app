@@ -17,7 +17,7 @@ function App() {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false); // State variable to track loading status
 
-  const API_KEY = 'AIzaSyAEZISoZ2XdTU-WjWSCMfIH8TwPToG4pK8';
+  const API_KEY = '';
 
   const genAI = new GoogleGenerativeAI(API_KEY);
   // For text-only input, use the gemini-pro model
