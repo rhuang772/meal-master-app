@@ -18,6 +18,9 @@
   padding: all;
   height: 90vh;
   width: 100%;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow content */
+  text-overflow: ellipsis;
 }
 
 .row {

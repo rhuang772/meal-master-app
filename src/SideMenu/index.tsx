@@ -3,7 +3,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import {AI} from '../AIComponent';
 
-function SideMenu(AI: AI) {
+interface SideMenuProps {
+    AI: AI; // Define prop type as AI
+  }
+
+function callSetParams(AI: AI, cookingScale: string, timesPerWeek: string, dietaryRestrictions: string, dietType: string, goals: string) : undefined {
+    AI.setParams(cookingScale, timesPerWeek, dietaryRestrictions, dietType, goals);
+    return undefined;
+}
+
+const SideMenu: React.FC<SideMenuProps> = ({ AI }) =>  {
     const [cookingScale, setCookingScale] = useState("");
     const [timesPerWeek, setTimesPerWeek] = useState("");
     const [dietaryRestrictions, setDietaryRestrictions] = useState("");
@@ -88,7 +97,7 @@ function SideMenu(AI: AI) {
                         <textarea className="form-control" onChange={(e) => setGoals(e.target.value)}></textarea>
                     </form><br />
                 </ol>
-                <button style={{ marginLeft: "190px" }} className="btn btn-success" type="button" onClick={AI.setParams(cookingScale, timesPerWeek, dietaryRestrictions, dietType, goals)}>Submit</button>
+                <button style={{ marginLeft: "190px" }} className="btn btn-success" type="button" onClick={callSetParams(AI, cookingScale, timesPerWeek, dietaryRestrictions, dietType, goals)}>Submit</button>
             </div>
             <br />
         </div>
