@@ -15,12 +15,12 @@
 }
 
 .output-box {
-  padding: all;
   height: 90vh;
   width: 100%;
-  white-space: nowrap; /* Prevent text wrapping */
-  overflow: hidden; /* Hide overflow content */
-  text-overflow: ellipsis;
+  overflow: auto;
+  max-width: 100%; /* Ensures the input box doesn't exceed its container */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+  word-wrap: break-word;
 }
 
 .row {
