@@ -7,8 +7,8 @@ interface SideMenuProps {
     AI: AI; // Define prop type as AI
   }
 
-function callSetParams(AI: AI, cookingScale: string, timesPerWeek: string, dietaryRestrictions: string, dietType: string, goals: string) : undefined {
-    AI.setParams(cookingScale, timesPerWeek, dietaryRestrictions, dietType, goals);
+function callSetParams(AI: AI, cookingScale: string, timesPerWeek: string, dietaryRestrictions: string, dietType: string, goals: string, style: string) : undefined {
+    AI.setParams(cookingScale, timesPerWeek, dietaryRestrictions, dietType, goals, style);
     return undefined;
 }
 
@@ -18,11 +18,12 @@ const SideMenu: React.FC<SideMenuProps> = ({ AI }) =>  {
     const [dietaryRestrictions, setDietaryRestrictions] = useState("");
     const [dietType, setDietType] = useState("");
     const [goals, setGoals] = useState("");
+    const [style, setStyle] = useState("");
 
     return (
         <div style={{ backgroundColor: "gray" }} className="container-fluid">
             <div style={{ marginLeft: " 5px" }}>
-                <h1 style={{ color: "aqua", fontStyle: "italic" }}>MealMaster</h1>
+                <h1 style={{ color: "aqua", fontStyle: "italic" }}>MealMaster</h1><hr style={{color: "white"}}/>
                 <ol>
                     <li style={{ fontWeight: "bold" }}>What would you rate your cooking on a scale of 1 to 5?</li>
                     <ul>
@@ -96,8 +97,13 @@ const SideMenu: React.FC<SideMenuProps> = ({ AI }) =>  {
                     <form id="textarea">
                         <textarea className="form-control" onChange={(e) => setGoals(e.target.value)}></textarea>
                     </form><br />
+                    <li style={{ fontWeight: "bold" }}>What style of cuisine do you prefer? (American, Italian, Chinese, Japanese, etc)</li><br />
+                    <form id="textarea">
+                        <textarea className="form-control" onChange={(e) => setStyle(e.target.value)}></textarea>
+                    </form><br />
                 </ol>
-                <button style={{ marginLeft: "190px" }} className="btn btn-success" type="button" onClick={callSetParams(AI, cookingScale, timesPerWeek, dietaryRestrictions, dietType, goals)}>Submit</button>
+                <button style={{ marginLeft: "130px" }} className="btn btn-success" type="button" onClick={callSetParams(AI, cookingScale, timesPerWeek, dietaryRestrictions, dietType, goals, style)}>Feed Data to MealMaster</button><hr/>
+                <h6 style={{color: "white", textAlign: "center"}}>Click "Press to see recipes!" on the right to get your recipes!</h6>
             </div>
             <br />
         </div>

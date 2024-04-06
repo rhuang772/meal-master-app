@@ -6,6 +6,7 @@ export class AI {
   dietaryRestrictions: string;
   dietType: string;
   goals: string;
+  style: string;
 
   constructor(model: any, input:string) {
       this.model = model;
@@ -15,6 +16,7 @@ export class AI {
       this.dietaryRestrictions = "";
       this.dietType = "";
       this.goals = "";
+      this.style = "";
   }
 
   public setModel(newModel:any) {
@@ -25,12 +27,13 @@ export class AI {
       this.input = newInput;
   }
 
-  public setParams(cookingScale: string, timesPerWeek: string, dietaryRestrictions: string, dietType: string, goals: string) {
+  public setParams(cookingScale: string, timesPerWeek: string, dietaryRestrictions: string, dietType: string, goals: string, style: string) {
       this.cookingScale = cookingScale;
       this.timesPerWeek = timesPerWeek;
       this.dietaryRestrictions = dietaryRestrictions;
       this.dietType = dietType;
       this.goals = goals;
+      this.style = style;
   }
 
   public async run() {
@@ -40,6 +43,7 @@ export class AI {
     "The user has the following dietary restrictions/allergies: " + this.dietaryRestrictions + 
     " The user adheres to the following diet: " + this.dietType + 
     " The user has the following goals when making a meal: " + this.goals + 
+    " The user prefers this style of cuisine: " + this.style + 
     this.input;
   
     try{
