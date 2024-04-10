@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Before Running
+
+Insert your Google Generative AI API key to use the generative AI feature.
+
 ## Available Scripts
 
 In the project directory, you can run:
