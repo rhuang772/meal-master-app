@@ -39,7 +39,10 @@ function App() {
           <textarea className="form-control" id="FormControlTextarea1" rows={33} readOnly value={output}></textarea>
         </div>
         <form className="respond-box">
-          <input placeholder='Ask about recipes here' onChange={(e) => setInput(e.target.value)}></input>
+          <input placeholder='Ask about recipes here' onChange={(e) => setInput(e.target.value)} 
+                onKeyDown={(e) => {if (e.key === "Enter") { 
+                  handleEnter()
+                  e.preventDefault()}}}></input>
           <button type="button" onClick={handleEnter}>
             {loading ? (
               <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
