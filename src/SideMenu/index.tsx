@@ -46,6 +46,12 @@ function callSetStyle(AI: AI, style: string, setter:React.Dispatch<React.SetStat
     return undefined;
 }
 
+function callSetPreferences(AI: AI, preferences: string, setter:React.Dispatch<React.SetStateAction<string>>) : undefined {
+    setter(preferences);
+    AI.setPreferences(preferences);
+    return undefined;
+}
+
 const SideMenu: React.FC<SideMenuProps> = ({ AI }) =>  {
     const [cookingScale, setCookingScale] = useState("");
     const [timesPerWeek, setTimesPerWeek] = useState("");
@@ -53,6 +59,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ AI }) =>  {
     const [dietType, setDietType] = useState("");
     const [goals, setGoals] = useState("");
     const [style, setStyle] = useState("");
+    const [preferences, setPreferences] = useState("");
 
     return (
         <div style={{ backgroundColor: "gray" }} className="container-fluid">
@@ -134,6 +141,10 @@ const SideMenu: React.FC<SideMenuProps> = ({ AI }) =>  {
                     <li style={{ fontWeight: "bold" }}>What style of cuisine do you prefer? (American, Italian, Chinese, Japanese, etc)</li><br />
                     <form id="textarea">
                         <textarea className="form-control" onChange={(e) => callSetStyle(AI, e.target.value, setStyle)}></textarea>
+                    </form><br />
+                    <li style={{ fontWeight: "bold" }}>What food do you not like?</li><br />
+                    <form id="textarea">
+                        <textarea className="form-control" onChange={(e) => callSetPreferences(AI, e.target.value, setPreferences)}></textarea>
                     </form><br />
                 </ol>
                 <hr/>

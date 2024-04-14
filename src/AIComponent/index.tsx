@@ -7,6 +7,7 @@ export class AI {
   dietType: string;
   goals: string;
   style: string;
+  preferences: string;
 
   constructor(model: any, input:string) {
       this.model = model;
@@ -17,6 +18,7 @@ export class AI {
       this.dietType = "";
       this.goals = "";
       this.style = "";
+      this.preferences = "";
   }
 
   // public setters
@@ -51,6 +53,10 @@ export class AI {
   public setStyle(newStyle:string) {
     this.style = newStyle;
   }
+
+  public setPreferences(newPreferences:string) {
+    this.preferences = newPreferences;
+  }
   
   // call to the model for a response
   public async run() {
@@ -62,7 +68,8 @@ export class AI {
     " The user adheres to the following diet: " + this.dietType + 
     " The user has the following goals when making a meal: " + this.goals + 
     " The user prefers this style of cuisine: " + this.style + 
-    this.input;
+    "The recommended recipes should not include the following food: " + this.preferences +
+    " Here is the prompt for the recipe: " + this.input;
   
     try{
       const result = await this.model.generateContent(prompt);
