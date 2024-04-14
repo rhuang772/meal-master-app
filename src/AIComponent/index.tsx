@@ -19,7 +19,6 @@ export class AI {
       this.style = "";
   }
 
-  // public setters
   public setModel(newModel:any) {
       this.model = newModel;
   }
@@ -28,33 +27,17 @@ export class AI {
       this.input = newInput;
   }
 
-  public setScale(newScale:string) {
-    this.cookingScale = newScale;
+  public setParams(cookingScale: string, timesPerWeek: string, dietaryRestrictions: string, dietType: string, goals: string, style: string) {
+      this.cookingScale = cookingScale;
+      this.timesPerWeek = timesPerWeek;
+      this.dietaryRestrictions = dietaryRestrictions;
+      this.dietType = dietType;
+      this.goals = goals;
+      this.style = style;
   }
 
-  public setTime(newTime:string) {
-    this.timesPerWeek = newTime;
-  }
-
-  public setDietRestrictions(newDiet:string) {
-    this.dietaryRestrictions = newDiet;
-  }
-
-  public setDietType(newType:string) {
-    this.dietType = newType;
-  }
-
-  public setGoals(newGoals:string) {
-    this.goals = newGoals;
-  }
-
-  public setStyle(newStyle:string) {
-    this.style = newStyle;
-  }
-  
-  // call to the model for a response
   public async run() {
-    const prompt = "You are a recipe generator. You do not need to return or print out any of the given information. All responses must be in English. " +
+    const prompt = "You are a recipe generator. You do not need to return or print out any of the given information. " +
     "Generate some detailed recipes from the following information: The user rates their cooking a " + this.cookingScale + 
     " on a scale from 1 to 5, 1 - instant ramen, 2 - can use a stove, 3 - comfortable with cooking, 4 - daily compliments on your cooking, and 5 being an expert. " +
     "The user cooks " + this.timesPerWeek + " times per week. " + 
@@ -68,7 +51,7 @@ export class AI {
       const result = await this.model.generateContent(prompt);
       const response = await result.response;
       const text = response.text().replace(/\*/g, "");
-      return text; 
+      return text; // test output in console for now
     } catch (e) {
       if (typeof e === "string") {
         return e.toUpperCase() // works, `e` narrowed to string
