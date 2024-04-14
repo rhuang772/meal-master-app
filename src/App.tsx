@@ -33,17 +33,17 @@ function App() {
     <div className="row">
       <div id='sidebar'><SideMenu AI={data} /></div>
 
-      <div id='content'>
+      <div id='content' className='content'>
         <div className="form-group">
           <label htmlFor="FormControlTextarea">Your personalized recommendation:</label>
           <textarea className="form-control" id="FormControlTextarea1" rows={33} readOnly value={output}></textarea>
         </div>
         <form className="respond-box">
           <input placeholder='Ask about recipes here' onChange={(e) => setInput(e.target.value)} 
-                onKeyDown={(e) => {if (e.key === "Enter") { 
-                  handleEnter()
-                  e.preventDefault()}}}></input>
-          <button type="button" onClick={handleEnter}>
+                onKeyDown={(e) => {if (e.key === "Enter") { // handle the enter like the button and don't refresh the page
+                  handleEnter() 
+                  e.preventDefault()}}}></input> 
+          <button type="button" className="submit" onClick={handleEnter}>
             {loading ? (
               <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             ) : (

@@ -63,7 +63,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ AI }) =>  {
 
     return (
         <div style={{ backgroundColor: "gray" }} className="container-fluid">
-            <div style={{ marginLeft: " 5px" }}>
+            <div>
                 <h1 style={{ color: "aqua", fontStyle: "italic" }}>MealMaster</h1><hr style={{color: "white"}}/>
                 <ol>
                     <li style={{ fontWeight: "bold" }}>What would you rate your cooking on a scale of 1 to 5?</li>

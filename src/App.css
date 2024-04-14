@@ -9,18 +9,13 @@
 .respond-box input {
   padding: 10px;
   margin-right: 5px;
-  border: 1px solid #ccc;
+  border: 5px solid #858585;
   flex-grow: 1;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
-.output-box {
+.form-group {
   height: 90vh;
-  width: 100%;
-  overflow: auto;
-  max-width: 100%; /* Ensures the input box doesn't exceed its container */
-  box-sizing: border-box; /* Include padding and border in the width calculation */
-  word-wrap: break-word;
 }
 
 .row {
@@ -30,11 +25,15 @@
 
 #sidebar {
   width: 30%;
-  box-shadow: 2px 0 4px rgba(10, 9, 9, 0.5);
   overflow: auto;
   max-height: 100vh;
 }
 
 #content {
   width: 70%;
+}
+
+.submit { 
+  border: 5px solid #858585;
+  border-radius: 10px;
 }
