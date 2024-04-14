@@ -5,11 +5,11 @@ import { AI } from './AIComponent';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 async function enter(setOutput: React.Dispatch<React.SetStateAction<string>>, data: AI, input: string, setLoading: React.Dispatch<React.SetStateAction<boolean>>) {
-  setLoading(true); 
+  setLoading(true);
   data.setInput(input);
   const output = await data.run();
   setOutput(output);
-  setLoading(false); 
+  setLoading(false);
 }
 
 function App() {
@@ -35,15 +35,35 @@ function App() {
 
       <div id='content' className='content'>
         <div className="form-group">
-          <label htmlFor="FormControlTextarea">Your personalized recommendation:</label>
-          <textarea className="form-control" id="FormControlTextarea1" rows={33} readOnly value={output}></textarea>
+          <label htmlFor="FormControlTextarea" style={{ textAlign: "center", backgroundColor: "gray", color: "aqua", fontStyle: "italic", display: "block", fontSize: "1.2rem" }}>
+            ~ Your personalized recommendation ~
+          </label>
+          <textarea
+            className="form-control"
+            id="FormControlTextarea1"
+            rows={43}
+            readOnly
+            style={{
+              color: "white",
+              backgroundColor: "gray",
+              borderColor: "lightgray",
+              borderWidth: "2px",
+              borderRadius: "10px",
+              padding: "10px",
+            }}
+            value={output}
+          ></textarea>
         </div>
+
         <form className="respond-box">
-          <input placeholder='Ask about recipes here' onChange={(e) => setInput(e.target.value)} 
-                onKeyDown={(e) => {if (e.key === "Enter") { // handle the enter like the button and don't refresh the page
-                  handleEnter() 
-                  e.preventDefault()}}}></input> 
-          <button type="button" className="submit" onClick={handleEnter}>
+          <input placeholder='Ask about recipes here' onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") { // handle the enter like the button and don't refresh the page
+                handleEnter()
+                e.preventDefault()
+              }
+            }}></input>
+          <button type="button" className="btn btn-primary submit" onClick={handleEnter}>
             {loading ? (
               <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             ) : (
