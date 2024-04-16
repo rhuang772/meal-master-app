@@ -60,8 +60,9 @@ export class AI {
   
   // call to the model for a response
   public async run() {
-    const prompt = "You are a recipe generator. You do not need to return or print out any of the given information. All responses must be in English. " +
-    "Generate some detailed recipes from the following information: The user rates their cooking a " + this.cookingScale + 
+    const prompt = "You are a recipe generator. The only information about the recipes that will be returned is time, difficulty, and what diet the recipe falls under. " + 
+    "All responses must be in English. All recipes must have a title. " +
+    "Generate 2 or 3 detailed recipes from the following information: The user rates their cooking a " + this.cookingScale + 
     " on a scale from 1 to 5, 1 - instant ramen, 2 - can use a stove, 3 - comfortable with cooking, 4 - daily compliments on your cooking, and 5 being an expert. " +
     "The user cooks " + this.timesPerWeek + " times per week. " + 
     "The user has the following dietary restrictions/allergies: " + this.dietaryRestrictions + 
