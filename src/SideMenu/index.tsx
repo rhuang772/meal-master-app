@@ -53,10 +53,10 @@ function callSetPreferences(AI: AI, preferences: string, setter:React.Dispatch<R
 }
 
 const SideMenu: React.FC<SideMenuProps> = ({ AI }) =>  {
-    const [cookingScale, setCookingScale] = useState("");
-    const [timesPerWeek, setTimesPerWeek] = useState("");
-    const [dietaryRestrictions, setDietaryRestrictions] = useState("");
-    const [dietType, setDietType] = useState("");
+    const [cookingScale, setCookingScale] = useState("3");
+    const [timesPerWeek, setTimesPerWeek] = useState("5");
+    const [dietaryRestrictions, setDietaryRestrictions] = useState("None");
+    const [dietType, setDietType] = useState("General");
     const [goals, setGoals] = useState("");
     const [style, setStyle] = useState("");
     const [preferences, setPreferences] = useState("");
